@@ -25,7 +25,7 @@
 #############################################################
 
 MAKEDEFAULTDIR=$(MARTe2_Embedded_Tools_DIR_BASE)/MakeDefaults
-CFG_FILE=$(PROJECT_DIR)/Configuration/RobotArm.cfg
+CFG_FILE=$(MARTe2_Embedded_Tools_DIR)/Scripts/CfgUploader.cfg
 SCHEDULER_NAME = BasicScheduler
 
 
