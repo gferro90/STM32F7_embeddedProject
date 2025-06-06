@@ -40,9 +40,11 @@ SPB = ToolConfiguration.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/USBCommunication.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/Externals/HCTL2022.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/GenericStreamDriver.x\
+	$(MARTe2_Embedded_Tools_DIR)/Streams/UsbStream.x\
 	$(MARTe2_Embedded_Tools_DIR)/Scheduler.x\
-	$(MARTe2_Embedded_Tools_DIR)/CfgUploader.x
-
+	$(MARTe2_Embedded_Tools_DIR)/CfgUploader.x \
+	$(MARTe2_Components_DIR)/Source/Components/GAMs/IOGAM.x \
+	$(MARTe2_Components_DIR)/Source/Components/DataSources/LoggerDataSource.x
 
 #$(MARTe2_Embedded_Tools_DIR)/DataSources/ADC_DMA.x 
 
@@ -86,6 +88,7 @@ LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSource
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/USBCommunication/USBCommunication.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/HCTL2022/HCTL2022DataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/GenericStreamDriver/GenericStreamDriver.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UsbStream/UsbStream.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Scheduler/BasicScheduler.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/CfgUploader/CfgUploader.a
 
@@ -93,6 +96,9 @@ LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/CfgUploade
 # Static MARTe libraries
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Core/BareMetal/MARTeCoreB.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Core/Scheduler/MARTeCoreS.a
+
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Components/DataSources/LoggerDataSource/LoggerDataSource.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Components/GAMs/IOGAM/IOGAM.a
 
 
 all: update $(SUBPROJ) $(OBJS) \
