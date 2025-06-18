@@ -33,20 +33,22 @@ OBJSX=	startup_main.x
 
 SPB = ToolConfiguration.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/GPIO.x \
-	$(MARTe2_Embedded_Tools_DIR)/DataSources/Encoder_opt.x \
-	$(MARTe2_Embedded_Tools_DIR)/DataSources/Externals/L298N.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/TimerDataSource.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/USBSignalDisplay.x \
-	$(MARTe2_Embedded_Tools_DIR)/DataSources/USBCommunication.x\
-	$(MARTe2_Embedded_Tools_DIR)/DataSources/Externals/HCTL2022.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/GenericStreamDriver.x\
+	$(MARTe2_Embedded_Tools_DIR)/DataSources/AdcDmaDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/Streams/UsbStream.x\
 	$(MARTe2_Embedded_Tools_DIR)/Scheduler.x\
 	$(MARTe2_Embedded_Tools_DIR)/CfgUploader.x \
 	$(MARTe2_Components_DIR)/Source/Components/GAMs/IOGAM.x \
 	$(MARTe2_Components_DIR)/Source/Components/DataSources/LoggerDataSource.x
 
-#$(MARTe2_Embedded_Tools_DIR)/DataSources/ADC_DMA.x 
+
+#	$(MARTe2_Embedded_Tools_DIR)/DataSources/Encoder_opt.x 
+#	$(MARTe2_Embedded_Tools_DIR)/DataSources/Externals/L298N.x 
+#	$(MARTe2_Embedded_Tools_DIR)/DataSources/USBCommunication.x
+#	$(MARTe2_Embedded_Tools_DIR)/DataSources/Externals/HCTL2022.x
+
 
 MAKEDEFAULTDIR=$(MARTe2_Embedded_Tools_DIR_BASE)/MakeDefaults
 include $(MAKEDEFAULTDIR)/MakeStdLibDefs.$(TARGET)
@@ -80,13 +82,13 @@ LIBRARIES_STATIC = Build/ToolConfiguration.a
 
 # Static platform libraries
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/TimerDataSource/TimerDataSource.a
-#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/ADC_DMA/ADC_DMADataSource.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/L298N/L298NDataSource.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/AdcDmaDataSource/AdcDmaDataSource.a
+#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/L298N/L298NDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/USBSignalDisplay/USBSignalDisplay.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/GPIO/GPIODataSource.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/Encoder_opt/Encoder_optDataSource.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/USBCommunication/USBCommunication.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/HCTL2022/HCTL2022DataSource.a
+#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/Encoder_opt/Encoder_optDataSource.a
+#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/USBCommunication/USBCommunication.a
+#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/HCTL2022/HCTL2022DataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/GenericStreamDriver/GenericStreamDriver.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UsbStream/UsbStream.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Scheduler/BasicScheduler.a

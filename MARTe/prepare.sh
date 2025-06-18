@@ -18,6 +18,3 @@
 	  cp -f $PROJECT_DIR/ToolConfiguration/$PROJECT_NAME/Middlewares/Third_Party/LwIP/src/${lwip_dir}/* $PROJECT_DIR/ToolConfiguration/
     done
     cp -f $PROJECT_DIR/ToolConfiguration/$PROJECT_NAME/Middlewares/Third_Party/LwIP/src/core/ipv4/* $PROJECT_DIR/ToolConfiguration/
-#	if [ ! -f $PROJECT_DIR/ToolConfiguration/usbd_core.c ]; then find . -name usbd_core.c | xargs -I found_file cp found_file $PROJECT_DIR/ToolConfiguration/ ; fi
-#	if [ ! -f $PROJECT_DIR/ToolConfiguration/usbd_ctlreq.c ]; then find . -name usbd_ctlreq.c | xargs -I found_file cp found_file $PROJECT_DIR/ToolConfiguration/ ; fi
-#	if [ ! -f $PROJECT_DIR/ToolConfiguration/usbd_ioreq.c ]; then find . -name usbd_ioreq.c | xargs -I found_file cp found_file $PROJECT_DIR/ToolConfiguration/ ; fi
