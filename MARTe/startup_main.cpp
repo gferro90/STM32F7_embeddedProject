@@ -52,15 +52,15 @@
  #include "cmsis_os.h"*/
 using namespace MARTe;
 const char8 * const config =
-		#include INCLUDE_CFG_FILE(__CFG__FILE__)
+        #include INCLUDE_CFG_FILE(__CFG__FILE__)
  ;
 
 //WHY???? I need this otherwise the class registered won't be linked
 StreamString boh;
 
 extern void DebugErrorProcessFunction(
-		const MARTe::ErrorManagement::ErrorInformation &errorInfo,
-		const char * const errorDescription);
+        const MARTe::ErrorManagement::ErrorInformation &errorInfo,
+        const char * const errorDescription);
 
 extern void PrintStack(ThreadIdentifier &tid);
 
@@ -69,83 +69,83 @@ extern void PrintF(const char * const message);
 static void MARTeAppLauncher(void const *ignored) {
     PrintF("Hello World!!!");
 
-	uint32 confSize = StringHelper::Length(config) + 1;
+    uint32 confSize = StringHelper::Length(config) + 1;
 
-	StreamMemoryReference *stream = new StreamMemoryReference(config, confSize);
-	stream->Seek(0);
+    StreamMemoryReference *stream = new StreamMemoryReference(config, confSize);
+    stream->Seek(0);
 
-	bool ok = true;
+    bool ok = true;
 
 #ifdef _UPLOAD_CFG
-	StreamString *cfgBuffer = new StreamString;
+    StreamString *cfgBuffer = new StreamString;
 
-	{
-		ConfigurationDatabase localCdb;
-		StandardParser localParser(*stream, localCdb);
+    {
+        ConfigurationDatabase localCdb;
+        StandardParser localParser(*stream, localCdb);
 
-		ok = localParser.Parse();
-		delete stream;
+        ok = localParser.Parse();
+        delete stream;
 
-		ReferenceContainer localContainer;
-		localContainer.Initialise(localCdb);
+        ReferenceContainer localContainer;
+        localContainer.Initialise(localCdb);
 
-		ReferenceT < CfgUploader > cfgUploader = localContainer.Find("CfgUploader");
-		ok = cfgUploader.IsValid();
-		if (ok) {
-			cfgUploader->UploadCfg(*cfgBuffer);
-		}
-	}
+        ReferenceT < CfgUploader > cfgUploader = localContainer.Find("CfgUploader");
+        ok = cfgUploader.IsValid();
+        if (ok) {
+            cfgUploader->UploadCfg(*cfgBuffer);
+        }
+    }
 #else
-	StreamMemoryReference* cfgBuffer = stream;
+    StreamMemoryReference* cfgBuffer = stream;
 
 #endif
-	ConfigurationDatabase cdb;
+    ConfigurationDatabase cdb;
 
-	if (ok) {
-		cfgBuffer->Seek(0);
-		StandardParser globalParser(*cfgBuffer, cdb);
+    if (ok) {
+        cfgBuffer->Seek(0);
+        StandardParser globalParser(*cfgBuffer, cdb);
 
-		ok = globalParser.Parse();
-		//REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 0 %d", ok);
-		delete cfgBuffer;
+        ok = globalParser.Parse();
+        //REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 0 %d", ok);
+        delete cfgBuffer;
 
-	}
+    }
 
-	ObjectRegistryDatabase *godb = NULL;
-	if (ok) {
-		godb = ObjectRegistryDatabase::Instance();
-		godb->Purge();
+    ObjectRegistryDatabase *godb = NULL;
+    if (ok) {
+        godb = ObjectRegistryDatabase::Instance();
+        godb->Purge();
 
-		ok = godb->Initialise(cdb);
-		//REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 1 %d", ok);
+        ok = godb->Initialise(cdb);
+        //REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 1 %d", ok);
 
-	}
+    }
 
-	ReferenceT < RealTimeApplication > application;
-	if (ok) {
-		application = godb->Find("Application1");
-		ok = application.IsValid();
-		//REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 2 %d", ok);
+    ReferenceT < RealTimeApplication > application;
+    if (ok) {
+        application = godb->Find("Application1");
+        ok = application.IsValid();
+        //REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 2 %d", ok);
 
-	}
+    }
 
-	if (ok) {
-		ok = application->ConfigureApplication();
-		//REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 3 %d", ok);
+    if (ok) {
+        ok = application->ConfigureApplication();
+        //REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 3 %d", ok);
 
-	}
+    }
 
-	if (ok) {
+    if (ok) {
 
-		ok = application->PrepareNextState("State1");
-		//REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 4 %d", ok);
+        ok = application->PrepareNextState("State1");
+        //REPORT_ERROR_PARAMETERS(ErrorManagement::Warning, "Status 4 %d", ok);
 
-	}
+    }
 
-	if (ok) {
-		application->StartNextStateExecution();
+    if (ok) {
+        application->StartNextStateExecution();
 
-	}
+    }
 }
 
 //char buffer[128]={0};
@@ -153,13 +153,13 @@ extern "C" {
 
 void UserMainFunction(const void *arg) {
 
-	SetErrorProcessFunction(&DebugErrorProcessFunction);
+    SetErrorProcessFunction(&DebugErrorProcessFunction);
 
-	MARTeAppLauncher (NULL);
+    MARTeAppLauncher (NULL);
 
-	while (1) {
-		Sleep::Sec(1.0);
-	}
+    while (1) {
+        Sleep::Sec(1.0);
+    }
 }
 }
 
