@@ -43,6 +43,7 @@
 #include "Threads.h"
 #include "string.h"
 #include "CfgUploader.h"
+#include "lwip.h"
 #include <stdio.h>
 //#include "usbd_cdc_if.h"
 
@@ -66,8 +67,19 @@ extern void PrintStack(ThreadIdentifier &tid);
 
 extern void PrintF(const char * const message);
 
+extern struct netif gnetif;
+
 static void MARTeAppLauncher(void const *ignored) {
     PrintF("Hello World!!!");
+
+#if 0
+    MX_LWIP_Init();
+
+    while(1){
+        ethernetif_input(&gnetif);
+        sys_check_timeouts();
+    }
+#endif
 
     uint32 confSize = StringHelper::Length(config) + 1;
 

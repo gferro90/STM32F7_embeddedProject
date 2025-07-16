@@ -32,12 +32,14 @@ SCHEDULER_NAME = BasicScheduler
 OBJSX=	startup_main.x
 
 SPB = ToolConfiguration.x \
+	$(MARTe2_Embedded_Tools_DIR)/Streams/UsbStream.x\
+	$(MARTe2_Embedded_Tools_DIR)/Streams/UdpStream.x\
 	$(MARTe2_Embedded_Tools_DIR)/GAMs/MathOperationGAM.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/GpioDataSource.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/TimerDataSource.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/AdcDmaDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/DacDmaDataSource.x\
-	$(MARTe2_Embedded_Tools_DIR)/Streams/UsbStream.x\
+	$(MARTe2_Embedded_Tools_DIR)/DataSources/UdpDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/Scheduler.x\
 	$(MARTe2_Embedded_Tools_DIR)/CfgUploader.x \
 	$(MARTe2_Components_DIR)/Source/Components/GAMs/IOGAM.x \
@@ -75,12 +77,14 @@ LIBRARIES_STATIC = Build/ToolConfiguration.a
 
 
 # Static platform libraries
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UsbStream/UsbStream.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UdpStream/UdpStream.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/GAMs/MathOperationGAM/MathOperationGAM.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/TimerDataSource/TimerDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/AdcDmaDataSource/AdcDmaDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/DacDmaDataSource/DacDmaDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/GpioDataSource/GpioDataSource.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UsbStream/UsbStream.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/UdpDataSource/UdpDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Scheduler/BasicScheduler.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/CfgUploader/CfgUploader.a
 
