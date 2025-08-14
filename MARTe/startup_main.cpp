@@ -67,8 +67,6 @@ extern void PrintStack(ThreadIdentifier &tid);
 
 extern void PrintF(const char * const message);
 
-extern struct netif gnetif;
-
 static void MARTeAppLauncher(void const *ignored) {
     PrintF("Hello World!!!");
 

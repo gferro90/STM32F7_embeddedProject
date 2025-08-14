@@ -7,7 +7,7 @@ export MARTe2_Embedded_Tools_DIR=$MARTe2_Embedded_Tools_DIR_BASE/MARTe2-platform
 export MARTe2_Components_DIR=/home/giuseppe/MARTe2Project/GIT/MARTe2-components
 export MAKEDEFAULTDIR=$MARTe2_Embedded_Tools_DIR_BASE/MakeDefaults
 export TARGET=arm_cort_m7_stm
-export SPEC_DEFS='-DSTM32F746xx -DSTM32746ZG_Nucleo -DUSE_FREERTOS -D_HAL_H="stm32f7xx_hal.h" -D__TIMER__NAME__=TIM6 -D_TIMER_HANDLE=htim6 -D_UART_HANDLE_ERR=huart4 -D_UPLOAD_CFG'
+export SPEC_DEFS='-DSTM32F746xx -DSTM32746ZG_Nucleo -DUSE_FREERTOS -D_HAL_H="stm32f7xx_hal.h" -D__TIMER__NAME__=TIM6 -D_TIMER_HANDLE=htim6 -D_UART_HANDLE_ERR=huart4 -D_UPLOAD_CFG -DLWIP_UDP=1'
 #-DERROR_ON_USB 
 export SCRIPT_DIR=$MARTe2_Embedded_Tools_DIR/Scripts
 export SCHEDULER_DIR=$MARTe2_Embedded_Tools_DIR/Scheduler
