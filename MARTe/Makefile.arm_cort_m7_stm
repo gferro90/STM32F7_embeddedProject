@@ -36,7 +36,6 @@ SPB = ToolConfiguration.x \
 	$(MARTe2_Embedded_Tools_DIR)/Streams/UdpStream.x\
 	$(MARTe2_Embedded_Tools_DIR)/GAMs/MathOperationGAM.x \
 	$(MARTe2_Embedded_Tools_DIR)/GAMs/SineGeneratorGAM.x \
-	$(MARTe2_Embedded_Tools_DIR)/GAMs/FromAdcGAM.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/GpioDataSource.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/TimerDataSource.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/AdcDmaDataSource.x\
@@ -81,9 +80,8 @@ LIBRARIES_STATIC = Build/ToolConfiguration.a
 # Static platform libraries
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UsbStream/UsbStream.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/UdpStream/UdpStream.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/GAMs/MathOperationGAM/MathOperationGAM.a
+#LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/GAMs/MathOperationGAM/MathOperationGAM.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/GAMs/SineGeneratorGAM/SineGeneratorGAM.a
-LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/GAMs/FromAdcGAM/FromAdcGAM.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/TimerDataSource/TimerDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/AdcDmaDataSource/AdcDmaDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/DacDmaDataSource/DacDmaDataSource.a

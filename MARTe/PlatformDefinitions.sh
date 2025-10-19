@@ -1,8 +1,8 @@
 #!/bin/sh
 
 #Exports needed by the project
-export MARTe2_DIR=/home/giuseppe/MARTe2Project/GIT/MARTe2
 export MARTe2_Embedded_Tools_DIR_BASE=/home/giuseppe/MARTe2Project/GIT/MARTe2_embedded_tools
+export MARTe2_DIR=$MARTe2_Embedded_Tools_DIR_BASE/MARTe2
 export MARTe2_Embedded_Tools_DIR=$MARTe2_Embedded_Tools_DIR_BASE/MARTe2-platforms/STM32
 export MARTe2_Components_DIR=/home/giuseppe/MARTe2Project/GIT/MARTe2-components
 export MAKEDEFAULTDIR=$MARTe2_Embedded_Tools_DIR_BASE/MakeDefaults
