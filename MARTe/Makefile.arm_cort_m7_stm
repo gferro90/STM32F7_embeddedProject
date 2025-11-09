@@ -42,6 +42,7 @@ SPB = ToolConfiguration.x \
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/DacDmaDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/UdpDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/DataSources/PwmDataSource.x\
+	$(MARTe2_Embedded_Tools_DIR)/DataSources/EncoderDataSource.x\
 	$(MARTe2_Embedded_Tools_DIR)/Scheduler.x\
 	$(MARTe2_Embedded_Tools_DIR)/CfgUploader.x \
 	$(MARTe2_Components_DIR)/Source/Components/GAMs/IOGAM.x \
@@ -89,6 +90,7 @@ LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSource
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/GpioDataSource/GpioDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/UdpDataSource/UdpDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/PwmDataSource/PwmDataSource.a
+LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/DataSources/EncoderDataSource/EncoderDataSource.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/Scheduler/BasicScheduler.a
 LIBRARIES_STATIC += $(MARTe2_Embedded_Tools_DIR_BASE)/Build/$(TARGET)/CfgUploader/CfgUploader.a
 
